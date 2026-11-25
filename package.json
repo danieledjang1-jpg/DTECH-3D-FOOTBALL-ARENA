@@ -1,0 +1,13 @@
+{
+  "name": "dtech-3d-football-arena",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playable 3D football game with JSON and XML match records",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "fast-xml-parser": "^5.2.5"
+  }
+}

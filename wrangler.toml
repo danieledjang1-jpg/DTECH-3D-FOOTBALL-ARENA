@@ -1,0 +1,9 @@
+name = "dtech-3d-football-arena"
+compatibility_date = "2026-11-25"
+pages_build_output_dir = "./public"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "dtech-football-matches"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+migrations_dir = "migrations"

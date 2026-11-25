@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DTECH 3D Football Arena</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="brand">DTECH <span>SPORTS LAB</span></div><div><h1>3D FOOTBALL ARENA</h1><p>Play the match. Own the result. Learn XML & JSON.</p></div></header>
+<main>
+<section class="game-card">
+  <div class="controls-bar">
+    <label>My team <select id="team"><option>DTECH FC</option><option>RIVERS UNITED</option><option>BLUE STARS</option></select></label>
+    <label>Match length <select id="duration"><option value="120">2 minutes</option><option value="90">90 seconds</option><option value="180">3 minutes</option></select></label>
+    <button id="start">KICK OFF</button><button id="pause" class="muted">PAUSE</button>
+  </div>
+  <div class="scoreboard"><div><small>HOME</small><b id="homeName">DTECH FC</b></div><strong><span id="homeScore">0</span> : <span id="awayScore">0</span></strong><div><small>AWAY</small><b>CPU UNITED</b></div><time id="clock">02:00</time></div>
+  <div id="gameCanvas" class="viewport"><div class="loading">Loading 3D pitch…</div></div>
+  <div class="instructions"><span>WASD / ARROWS: MOVE</span><span>SPACE: SHOOT</span><span>SHIFT: SPRINT</span><span>Q: SWITCH PLAYER</span></div>
+  <p id="status" class="status">Choose your team and press KICK OFF. Use the keyboard to control your player.</p>
+</section>
+<section class="data-card">
+  <div class="section-title"><div><h2>Match centre</h2><p>Every completed match is saved in JSON and mirrored to XML.</p></div><button id="refresh" class="muted">REFRESH</button></div>
+  <div id="history" class="history">Loading records…</div>
+  <div class="download-row"><a href="/api/export/json" class="download">DOWNLOAD JSON</a><a href="/api/export/xml" class="download xml">DOWNLOAD XML</a></div>
+</section>
+<section class="data-card">
+  <h2>XML import lab</h2><p>Paste a compatible <code>&lt;matches&gt;</code> XML document to import its match records. Duplicate IDs are skipped.</p>
+  <textarea id="xmlText" placeholder='<?xml version="1.0" encoding="UTF-8"?>&#10;<matches>...</matches>'></textarea>
+  <button id="importXml">IMPORT XML</button><span id="importStatus" class="status"></span>
+</section>
+<section class="data-card explain">
+  <h2>ADSE: where your files live</h2>
+  <p><b>JSON:</b> <code>data/matches.json</code> — the backend writes match records here.</p>
+  <p><b>XML:</b> <code>data/matches.xml</code> — the backend generates an XML version of the same records.</p>
+  <p>For the deployed Cloudflare version, match records are stored persistently in D1; the JSON and XML download buttons export the saved records.</p>
+</section>
+</main>
+<script type="module" src="game.js"></script>
+</body></html>
